@@ -227,7 +227,6 @@ def calculate_and_announce_move(driver, board, team, fmove):
         print("Could not calculate move. Check selectors and HTML structure.")
         announce_move("Error. Could not calculate move. Please either try again after playing a move or restart the program and/or game.")
     except KeyboardInterrupt:
-        print("caca")
         driver.quit()
         exit()
 
