@@ -28,21 +28,20 @@ def get_piece_from_class(piece_class):
         }[piece_class[1]]
         return chess.Piece(piece_type, piece_color)
     except Exception as e:
-        print("Error:", e)
+        print("Error 1:", e)
 
 def get_board_from_web(driver):
     try:
         board_element = driver.find_element("css selector", 'div.board-layout-chessboard')
         html_structure = board_element.get_attribute('outerHTML')
-        return html_structure
+        return html_structure    
     except Exception as e:
-        print("Error:", e)
+        print("Error 2:", e)
 
 level = os.getenv("level")
 driver_path = os.getenv("chromedriver_path")
 stockfish_path = os.getenv("stockfish_path")
 profile_path = os.getenv("chrome_profile_path")
-
 
 if level.isdigit() == False and level == "stockfish":
     level = 0
@@ -73,7 +72,7 @@ def get_best_move(board):
         engine.quit()
         return result.move
     except Exception as e:
-        print("Error:", e)
+        print("Error 3:", e)
 
 def announce_move(move):
     pass
@@ -149,11 +148,9 @@ def make_move_on_board(driver, move, board, team, f):
 
                 promotion_piece_element.click()
         except Exception as e:
-            print("Error:", e)
-
+            print("Error 4:", e)
     except Exception as e:
-        print("Error:", e)
-        
+        print("Error 5:", e)
 
 def calculate_and_announce_move(driver, board, team, fmove):
     try:
@@ -176,7 +173,6 @@ def calculate_and_announce_move(driver, board, team, fmove):
                 piece_class = piece_class_match.group(1)
                 square_position = square_position_match.group(1)
             else:
-
                 continue
 
             letterlist = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
@@ -223,10 +219,10 @@ def calculate_and_announce_move(driver, board, team, fmove):
             piece = get_piece_from_class(piece_class)
             last_board.set_piece_at(square_index, piece)
     except Exception as e:
-        print("Error:", e)
+        print("Error 6:", e)
         print("Could not calculate move. Check selectors and HTML structure.")
-        announce_move("Error. Could not calculate move. Please either try again after playing a move or restart the program and/or game.")
     except KeyboardInterrupt:
+        print("caca")
         driver.quit()
         exit()
 
@@ -250,24 +246,23 @@ def has_board_changed_and_which_color(last_board, current_board, team):
 
         return str(last_board) != str(current_board), color
     except Exception as e:
-        print("Error:", e)
-
+        print("Error 7:", e)
 
 def main():
-    try:
-        options = webdriver.ChromeOptions()
-        options.add_argument(f"executable_path={driver_path}")
-        options.add_argument("--disable-blink-features=AutomationControlled")
-        options.add_argument("--log-level=3")  
-        options.add_argument(f"user-data-dir={profile_path}")
-        global driver
-        driver = webdriver.Chrome(options=options)
-        driver.get('https://www.chess.com/play/online')
+    options = webdriver.ChromeOptions()
+    options.add_argument(f"executable_path={driver_path}")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("--log-level=3")  
+    options.add_argument(f"user-data-dir={profile_path}")
+    global driver
+    driver = webdriver.Chrome(options=options)
+    driver.get('https://www.chess.com/play/online')
 
-        global last_board
-        last_board = chess.Board()
-        first_move = True
-        while True:
+    global last_board
+    last_board = chess.Board()
+    first_move = True
+    while True:
+        try:
             time.sleep(0.1)
             html_structure = get_board_from_web(driver)
             soup = BeautifulSoup(html_structure, 'html.parser')
@@ -302,6 +297,8 @@ def main():
                 piece = get_piece_from_class(piece_class)
                 current_board.set_piece_at(square_index, piece)
             if current_board != current_board.is_game_over():
+                if current_board == chess.Board() and team_prompt == "w":
+                    first_move = True
                 changed, color_moved = has_board_changed_and_which_color(last_board=last_board, current_board=current_board, team=team_prompt)
                 if team_prompt == "w":
                     team = team_prompt
@@ -391,8 +388,8 @@ def main():
             else:
                 print("Game over. Exiting...")
                 exit()
-    except Exception as e:
-        print("Error:", e)
+        except Exception as e:
+            print("Error 8:", e)
         
 if __name__ == "__main__":
     main()
