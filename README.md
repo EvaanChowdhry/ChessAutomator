@@ -1,6 +1,6 @@
-# ChessCom Auotomater.
+# ChessCom Automater.
 
-Hello wild chess player. This tool is a python script for Windows or MacOS that uses the chess engine [Stockfish](https://stockfishchess.org/) to automatically play the best move.
+Hello, wild chess player. This tool is a Python script for Windows or MacOS that uses the chess engine [Stockfish](https://stockfishchess.org/) to automatically play the best move.
 In addition to that, this automator script has features that make it play like a human. Like levels of accuracy and delays.
 
 Here are the different accuracy levels (1-4, stockfish, random):
@@ -18,7 +18,7 @@ The steps to get started using this chesscom automator are pretty easy.
 
 ## First step: 
 
-Create a terminal window in the directory you want the automator to go. You can do this by:
+Create a terminal window in the directory you want the Automator to go to. You can do this by:
 
 Opening a terminal window and run this command:
 
@@ -44,7 +44,7 @@ git clone https://github.com/EvaanChowdhry/ChessAutomater/MacOS
 
 ## Step 3:
 
-Navigate to the directory you cloned the files to and then install requirements.txt. Use this commands:
+Navigate to the directory you cloned the files to and then install requirements.txt. Use these commands:
 `pip install -r requirements.txt`
 
 ## Step 4: 
@@ -70,7 +70,7 @@ Replace the chromedriver_path field with either one of these paths:
 For Windows:
 `./chromedriver.exe`
 
-For MacOS:
+For macOS:
 `./chromedriver`
 
 ### chrome_profile_path:
@@ -91,7 +91,7 @@ If you don't have homebrew installed, install it from: https://brew.sh.
 When you finish that, install stockfish with homebrew if you haven't already.
 `brew install stockfish`
 
-Then run this command to find it's path.
+Then run this command to find its path.
 `where stockfish`
 
 Replace the stockfish_path with the path you get.
@@ -99,10 +99,10 @@ Replace the stockfish_path with the path you get.
 ### level
 Replace it with the level you chose.
 
-Levels must be either a number between `1` (**worst**) and `4` (**best, but still makes mistakes**), `stockfish` (just the stockfish engine, **BE CAREFUL WITH THIS**) or `random`.
+Levels must be either a number between `1` (**worst**) and `4` (**best, but still makes mistakes**), `stockfish` (just the stockfish engine, **BE CAREFUL WITH THIS**), or `random`.
 
 Now you're all set to enjoy automated chess with the ChessCom Automator! Good Luck!
 
 
 
-**I do not take responsibility for what chaos you create. If your chesscom account gets banned/locked/or any form of punished, it is not my fault as you CHOSE to use this**
+**I do not take responsibility for what chaos you create. If your chess com account gets banned/locked/or any form of punishment, it is not my fault as you CHOSE to use this**
