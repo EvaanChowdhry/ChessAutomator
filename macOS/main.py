@@ -28,7 +28,7 @@ def get_piece_from_class(piece_class):
         }[piece_class[1]]
         return chess.Piece(piece_type, piece_color)
     except Exception as e:
-        print("Error 1:", e)
+        print("Error, code 1:", e)
 
 def get_board_from_web(driver):
     try:
@@ -36,25 +36,31 @@ def get_board_from_web(driver):
         html_structure = board_element.get_attribute('outerHTML')
         return html_structure    
     except Exception as e:
-        print("Error 2:", e)
+        print("Error, code 2:", e)
 
 level = os.getenv("level")
 driver_path = os.getenv("chromedriver_path")
 stockfish_path = os.getenv("stockfish_path")
 profile_path = os.getenv("chrome_profile_path")
+max_delay = 1
 
 if level.isdigit() == False and level == "stockfish":
     level = 0
-elif level.isdigit() == False and level < 4:
+elif level.isdigit() == True:
     level = int(level)
     if level == 1:
         level == 0.5
+        max_delay = 17
     elif level == 2:
         level == 0.25
+        max_delay = 14
     elif level == 3:
         level == 0.1
+        max_delay = 11
     elif level == 4:
         level == 0.01
+        max_delay = 7
+
 elif level.isdigit() == False and level == "random":
     level = random.randint(1, 4)
 else:
@@ -72,13 +78,14 @@ def get_best_move(board):
         engine.quit()
         return result.move
     except Exception as e:
-        print("Error 3:", e)
+        print("Error, code 3:", e)
 
 def announce_move(move):
     pass
 
 def make_move_on_board(driver, move, board, team, f):
     try:
+        global max_delay
         letterlist = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
         source_square = move[:2]
@@ -109,7 +116,7 @@ def make_move_on_board(driver, move, board, team, f):
                 EC.presence_of_element_located((By.CSS_SELECTOR, piece_selector))
             )
             if f != True:
-                delay = random.randint(1, 12)
+                delay = random.randint(1, max_delay)
             else:
                 delay = random.randint(1, 3)
             for i in range(delay):
@@ -148,9 +155,9 @@ def make_move_on_board(driver, move, board, team, f):
 
                 promotion_piece_element.click()
         except Exception as e:
-            print("Error 4:", e)
+            print("Error, code 4:", e)
     except Exception as e:
-        print("Error 5:", e)
+        print("Error, code 5:", e)
 
 def calculate_and_announce_move(driver, board, team, fmove):
     try:
@@ -219,10 +226,9 @@ def calculate_and_announce_move(driver, board, team, fmove):
             piece = get_piece_from_class(piece_class)
             last_board.set_piece_at(square_index, piece)
     except Exception as e:
-        print("Error 6:", e)
+        print("Error, code 6:", e)
         print("Could not calculate move. Check selectors and HTML structure.")
     except KeyboardInterrupt:
-        print("caca")
         driver.quit()
         exit()
 
@@ -246,7 +252,7 @@ def has_board_changed_and_which_color(last_board, current_board, team):
 
         return str(last_board) != str(current_board), color
     except Exception as e:
-        print("Error 7:", e)
+        print("Error, code 7:", e)
 
 def main():
     options = webdriver.ChromeOptions()
@@ -389,7 +395,7 @@ def main():
                 print("Game over. Exiting...")
                 exit()
         except Exception as e:
-            print("Error 8:", e)
+            print("Error, code 8:", e)
         
 if __name__ == "__main__":
     main()
