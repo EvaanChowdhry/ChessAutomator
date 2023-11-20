@@ -99,7 +99,7 @@ Replace the stockfish_path with the path you get.
 ### level
 Replace it with the level you chose.
 
-Levels must be either a number between `1` (**worst**) and `4` (**best, but still makes mistakes**), `stockfish` (just the stockfish engine, **BE CAREFUL WITH THIS**), or `random`.
+Levels must be either a number between `1` (**worst**) and `4` (**best, but still makes mistakes**), `'stockfish'` (just the stockfish engine, **BE CAREFUL WITH THIS**), or `random`.
 
 Now you're all set to enjoy automated chess with the ChessCom Automator! Good Luck!
 
