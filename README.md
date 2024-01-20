@@ -3,7 +3,7 @@
 Hello, wild chess player. This tool is a Python script for Windows or MacOS that uses the chess engine [Stockfish](https://stockfishchess.org/) to automatically play the best move.
 In addition to that, this automator script has features that make it play like a human. Like levels of accuracy and delays.
 
-**You may have some problems with your Chrome version. If it doesn't work once, try it with another version, I believe it was Chrome 114.**
+**You may have some problems with your Chrome version. If it doesn't work once, try it with another version. I believe it was Chrome 114.**
 
 Here are the different accuracy levels (1-4, stockfish, random):
 
