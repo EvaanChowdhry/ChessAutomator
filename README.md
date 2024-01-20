@@ -21,8 +21,8 @@ The steps to get started using this chesscom automator are pretty easy.
 ## First step: 
 Download the Repository.
 
-First, click on the green `Code` Button. It should look something like this:
-![Code](https://i.ibb.co/Z1FC8z0/image.png)
+First, click on the green `Code` Button. It should look something like this:   
+![Code](https://i.ibb.co/Z1FC8z0/image.png)  
 
 Then click on Download ZIP.
 
