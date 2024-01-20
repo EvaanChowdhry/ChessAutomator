@@ -109,4 +109,4 @@ Now you're all set to enjoy automated chess with the ChessCom Automator! Good Lu
 
 
 
-Credits to [Jad AlHakim](https://github.com/JadXV)
+Credits to [Jad AlHakim](https://github.com/DreamedOfIt)
