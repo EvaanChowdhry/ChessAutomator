@@ -3,6 +3,8 @@
 Hello, wild chess player. This tool is a Python script for Windows or MacOS that uses the chess engine [Stockfish](https://stockfishchess.org/) to automatically play the best move.
 In addition to that, this automator script has features that make it play like a human. Like levels of accuracy and delays.
 
+**You may have some problems with your Chrome version. If it doesn't work once, try it with another version, I believe it was Chrome 114.**
+
 Here are the different accuracy levels (1-4, stockfish, random):
 
 1. Level 1: 50% chance of a move being a mistake.
@@ -17,41 +19,25 @@ Here are the different accuracy levels (1-4, stockfish, random):
 The steps to get started using this chesscom automator are pretty easy.
 
 ## First step: 
+Download the Repository.
 
-Create a terminal window in the directory you want the Automator to go to. You can do this by:
+First, click on the green `Code` Button. It should look something like this:
+![Code](https://i.ibb.co/Z1FC8z0/image.png)
 
-Opening a terminal window and run this command:
+Then click on Download ZIP.
 
-```bash
-cd [replace_this_with_your_directory]
-```
+Extract the ZIP file, then delete any unnecessary files, like the macOS folder if you're on windows and vice versa. 
 
-## Now you're ready for Step 2:
+## Step 2:
 
-Clone either the `windows` version of the script or the `MacOS` version. You can do this by:
-
-Running these git commands:
-
-```bash
-git clone https://github.com/EvaanChowdhry/ChessAutomater/windows
-```
-
-or for `MacOS`:
-
-```bash
-git clone https://github.com/EvaanChowdhry/ChessAutomater/MacOS
-```
-
-## Step 3:
-
-Navigate to the directory you cloned the files to and then install requirements.txt. Use these commands:
+Navigate to the respective folder you kept in step 1, then install everything listed in requirements.txt. Use these commands:
 `pip install -r requirements.txt`
 
 ## Step 4: 
 
-Now that you're in the directory with the packages installed, open `.env` in a text editor. (For example, Notepad for Windows, TextEdit for MacOS)
+Now that you're in your folder and you have the packages installed, open `.env` in a text editor. (For example, Notepad for Windows, TextEdit for MacOS)
 
-The .env file should look something along the lines of:
+The .env file should look something like:
 
 ```
 chromedriver_path=''
@@ -86,7 +72,7 @@ For Windows:
 `./stockfish.exe`
 
 For MacOS (you need `homebrew` for this):
-If you don't have homebrew installed, install it from: https://brew.sh.
+If you don't have homebrew installed, install it from: [brew.sh](https://brew.sh).
 
 When you finish that, install stockfish with homebrew if you haven't already.
 `brew install stockfish`
