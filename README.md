@@ -106,3 +106,7 @@ Now you're all set to enjoy automated chess with the ChessCom Automator! Good Lu
 
 
 **I do not take responsibility for what chaos you create. If your chess com account gets banned/locked/or any form of punishment, it is not my fault as you CHOSE to use this**
+
+
+
+Credits to [Jad AlHakim](https://github.com/JadXV)
