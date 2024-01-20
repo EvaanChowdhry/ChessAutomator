@@ -5,7 +5,7 @@ In addition to that, this automator script has features that make it play like a
 
 You will not have to move any piece in the game, let the script do it's thing and you would probably win depending on this mistake rate, and/or your opponent's skill level.
 
-**You may have some problems with your Chrome version. If it doesn't work once, try it with another version. I believe it was Chrome 114.**
+**You may have some problems with your Chrome version. If it doesn't work once, try it with another version. I believe it was Chrome 119 or 120.**
 
 Here are the different accuracy levels (1-4, stockfish, random):
 
